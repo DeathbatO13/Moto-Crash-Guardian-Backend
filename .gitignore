@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Keep project documentation tracked even if global ignore rules match Markdown.
+!README.md
+!ROADMAP.md
