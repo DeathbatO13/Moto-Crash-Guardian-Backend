@@ -1,0 +1,42 @@
+# Perfil de despliegue (Render). Se activa con SPRING_PROFILES_ACTIVE=prod.
+# Render entrega host/puerto/base/usuario/clave por separado (render.yaml -> fromDatabase),
+# asi que la URL JDBC se arma aqui. SPRING_DATASOURCE_URL, si existe, tiene prioridad.
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT:5432}/${DB_NAME}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:5}
+      minimum-idle: 1
+      connection-timeout: 10000
+      max-lifetime: 600000
+  main:
+    # En produccion se prefiere fallar en el arranque y no en la primera peticion.
+    lazy-initialization: false
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+
+server:
+  shutdown: graceful
+  tomcat:
+    threads:
+      max: 50
+    connection-timeout: 10s
+    max-http-form-post-size: 64KB
+
+management:
+  endpoint:
+    health:
+      show-details: never
+      group:
+        readiness:
+          include: readinessState,db
+
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: WARN

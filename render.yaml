@@ -1,0 +1,52 @@
+# Render Blueprint — Moto Crash Guardian Backend
+# Uso: Render Dashboard -> New -> Blueprint -> seleccionar este repositorio.
+# Si el backend vive dentro de un monorepo, mover este archivo a la raiz del repo
+# y descomentar `rootDir: Backend` (ver docs/DEPLOY_RENDER.md).
+
+databases:
+  - name: mcg-db
+    databaseName: mcg
+    user: mcg
+    plan: free            # Expira 30 dias despues de crearla: crear el 13-oct-2026 para cubrir la entrega del 19-oct.
+    region: virginia      # Region mas cercana a Colombia; debe coincidir con el consentimiento.
+    postgresMajorVersion: "17"
+    ipAllowList: []       # Sin acceso externo: solo la red privada de Render.
+
+services:
+  - type: web
+    name: mcg-backend
+    runtime: docker
+    plan: free            # Se duerme tras 15 min sin trafico (~30-60 s en despertar); despertarlo antes de la demo.
+    region: virginia
+    # rootDir: Backend
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /actuator/health/readiness
+    autoDeployTrigger: checksPass   # Despliega solo si pasa el CI de GitHub.
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: DB_HOST
+        fromDatabase:
+          name: mcg-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: mcg-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: mcg-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: mcg-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: mcg-db
+          property: password
+      - key: DB_POOL_SIZE
+        value: "5"
+      - key: JAVA_TOOL_OPTIONS
+        value: "-XX:MaxRAMPercentage=70 -XX:+UseSerialGC -Xss512k -XX:+ExitOnOutOfMemoryError"
