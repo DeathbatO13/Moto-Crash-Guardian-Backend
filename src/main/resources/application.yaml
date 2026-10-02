@@ -1,10 +1,12 @@
+# Configuracion comun a todos los entornos. No contiene credenciales:
+# - local: application-local.yaml (spring-boot:run lo activa por defecto)
+# - prod:  application-prod.yaml (Render, SPRING_PROFILES_ACTIVE=prod)
+# - pruebas: PostgreSQL de Testcontainers via @ServiceConnection
+# Sin perfil, la conexion se toma de SPRING_DATASOURCE_URL/USERNAME/PASSWORD o el arranque falla.
 spring:
   application:
-    name: backend
+    name: mcg-backend
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/mcg}
-    username: ${SPRING_DATASOURCE_USERNAME:mcg}
-    password: ${SPRING_DATASOURCE_PASSWORD:mcg}
     hikari:
       maximum-pool-size: 5
   jpa:
@@ -13,8 +15,7 @@ spring:
       ddl-auto: validate
   flyway:
     enabled: true
-  main:
-    lazy-initialization: true
+    locations: classpath:db/migration
 server:
   port: ${PORT:8080}
   forward-headers-strategy: framework

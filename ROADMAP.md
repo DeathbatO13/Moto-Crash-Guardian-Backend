@@ -2,6 +2,18 @@
 
 Este roadmap convierte `docs/10-backend-architecture.md`, `docs/04-data-model.md` y las features de sincronizacion en entregas verificables. El backend respalda configuracion, contactos, incidentes y trazas; nunca participa en la deteccion ni en el despacho de una emergencia.
 
+
+**Estado de partida:** Spring Boot 4.0.8, Kotlin 2.2.21 y Java 21 con Maven Wrapper. El POM incluye MVC, JPA, Validation, Security, Actuator, Flyway/PostgreSQL, springdoc y Testcontainers 2.x. El codigo de producto se limita a la clase de arranque, perfiles `local`/`prod`, seguridad minima y pruebas de integracion con Testcontainers; no hay migraciones, entidades, autenticacion propia ni endpoints `/api/v1`.
+
+## Fase 0 — Alinear el build y el entorno
+
+- [x] Resolver la discrepancia de build: se mantiene **Maven** ([`docs/ADR-005a-build-maven.md`](docs/ADR-005a-build-maven.md)); README y CI alineados. Pendiente fuera de este repo: enlazar el ADR desde `../docs/decisions/ADR-005` y `../docs/10-backend-architecture.md`.
+- [x] Validar compatibilidad con Spring Boot 4.0.8: springdoc 3.0.3; Kotlin y Testcontainers ahora vienen del BOM (el override a Testcontainers 1.21.3 era incompatible con `spring-boot-testcontainers` 4 → artefactos `testcontainers-postgresql`/`testcontainers-junit-jupiter` 2.0.5); se agrego `spring-boot-starter-flyway`, sin el cual Boot 4 no ejecuta migraciones.
+- [x] Nombre/descripcion/licencia Maven; perfiles `local` (credenciales de desarrollo, solo `spring-boot:run`), `prod` (Render) y pruebas (Testcontainers). `application.yaml` ya no trae credenciales por defecto.
+- [x] Pruebas con PostgreSQL aislado (`TestcontainersConfiguration` + `@ServiceConnection`, `postgres:17-alpine`); requisito de Docker documentado. Modo manual separado y explicito: `MCG_TEST_EXTERNAL_DB=true` + `SPRING_DATASOURCE_*`.
+- [ ] Ejecutar `mvnw.cmd test` en Java 21 con Docker (verificado 29-sep: `test-compile` y `package -DskipTests` OK; el contexto llega hasta Testcontainers y el modo externo hasta la conexion, pero la maquina de desarrollo no tiene Docker ni el rol `mcg`). Se valida en CI al subir el repo o al instalar Docker Desktop.
+- [x] CI (`.github/workflows/backend-ci.yml`): `mvnw verify` con Testcontainers (sin servicio Postgres) y `docker build`.
+=======
 **Estado de partida:** Spring Boot 4.0.8, Kotlin 2.2.21 y Java 21 ya estan configurados con Maven Wrapper. El POM incluye MVC, JPA, Validation, Security, Actuator, Flyway/PostgreSQL, springdoc y Testcontainers. El codigo de producto aun se limita a la clase de arranque, configuracion de datasource/JPA/health y una prueba de carga de contexto; no hay migraciones, entidades, autenticacion propia ni endpoints `/api/v1`.
 
 ## Fase 0 — Alinear el build y el entorno
@@ -11,6 +23,7 @@ Este roadmap convierte `docs/10-backend-architecture.md`, `docs/04-data-model.md
 - [ ] Definir nombre/descripcion Maven, perfiles local/test y configuracion PostgreSQL reproducible; no usar credenciales de desarrollo como configuracion de despliegue.
 - [ ] Hacer que las pruebas arranquen con PostgreSQL aislado (Testcontainers) y documentar el requisito de Docker; separar cualquier prueba que realmente exija una instancia manual.
 - [ ] Ejecutar `mvnw.cmd test` y `mvnw.cmd package` en Java 21; agregar CI por cambios en `Backend/`.
+
 
 **Salida:** build reproducible, versiones compatibles y base de datos de prueba automatizada.
 
@@ -64,9 +77,16 @@ Este roadmap convierte `docs/10-backend-architecture.md`, `docs/04-data-model.md
 
 ## Fase 6 — Operacion y despliegue
 
+
+- [ ] Confirmar que `/actuator/health` y probes funcionen sin exponer otros endpoints Actuator (verificado manualmente: health 200, resto 403). Prueba automatizada escrita en `BackendApplicationTests` (MockMvc + Spring Security); falta verla en verde con Docker/CI.
+- [x] Crear Dockerfile multi-stage no-root con JVM ajustada al plan de Render; health check via `healthCheckPath` de Render.
+- [x] Crear `render.yaml` y `docs/DEPLOY_RENDER.md`; la URL JDBC se arma en `application-prod.yaml` con `DB_*` de `fromDatabase` (sin convertir la URL `postgres://`).
+- [ ] Ejecutar el primer deploy real en Render el 13-oct-2026 (no antes: la base Free vence a los 30 dias) y registrar la URL publica; cronograma en `docs/DEPLOY_RENDER.md` §9.
+=======
 - [ ] Confirmar que `/actuator/health` y probes funcionen sin exponer otros endpoints Actuator; probarlo a traves de Spring Security.
 - [ ] Crear Dockerfile multi-stage no-root con JVM ajustada al plan de Render; incluir health check si la plataforma lo requiere.
 - [ ] Crear `render.yaml`/instrucciones de despliegue y variables `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_DATASOURCE_PASSWORD`; convertir correctamente la URL PostgreSQL de Render a JDBC.
+
 - [ ] Configurar HTTPS/proxy headers, HSTS, limites de conexion, timeouts y pool pequeno; confirmar retencion de datos y region informada en consentimiento.
 - [ ] Ejecutar suite completa en CI, escaneo de dependencias y ensayo de despliegue; verificar Swagger y sincronizacion de un incidente de demo.
 

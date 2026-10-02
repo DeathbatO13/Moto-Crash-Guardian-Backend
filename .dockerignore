@@ -1,0 +1,13 @@
+target/
+.maven-cache/
+.mvn/wrapper/maven-wrapper.jar
+.idea/
+.vscode/
+*.iml
+.git/
+.github/
+docs/
+*.md
+Dockerfile
+.dockerignore
+render.yaml

@@ -1,0 +1,12 @@
+# Perfil de desarrollo en la maquina del equipo. Nunca usar en despliegue.
+# Requiere una base local: CREATE ROLE mcg LOGIN PASSWORD 'mcg'; CREATE DATABASE mcg OWNER mcg;
+# Las variables SPRING_DATASOURCE_* siguen teniendo prioridad sobre estos valores.
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mcg
+    username: mcg
+    password: mcg
+
+logging:
+  level:
+    com.mtg.backend: DEBUG
