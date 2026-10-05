@@ -6,18 +6,13 @@ API REST para replicar configuracion y contactos y conservar historial/trazas de
 
 ## Estado actual
 
-
-Base Spring Boot 4.0.8 + Kotlin 2.2.21 + Java 21 con Maven Wrapper (Fase 0 completada). La aplicacion contiene la clase de arranque, perfiles `local`/`prod`, Flyway configurado (aun sin migraciones), una cadena de seguridad minima (solo `/actuator/health/**` publico) y pruebas de integracion sobre PostgreSQL con Testcontainers; faltan migraciones, entidades, autenticacion por instalacion y endpoints de producto.
+Base Spring Boot 4.0.8 + Kotlin 2.2.21 + Java 21 con Maven Wrapper. Las fases 0 a 5 del roadmap estan implementadas; las pruebas con PostgreSQL 17/Testcontainers validan la migracion Flyway, Hibernate `ddl-auto: validate`, el round-trip de trazas, borrado en cascada y upserts concurrentes. La suite completa paso con 50 pruebas. Persisten tareas operativas/de despliegue y sincronizacion Android.
 
 El despliegue en Render ya esta configurado (`Dockerfile`, `render.yaml`, CI). Guia completa: [`docs/DEPLOY_RENDER.md`](docs/DEPLOY_RENDER.md).
-=======
-Base Spring Boot 4.0.8 + Kotlin 2.2.21 + Java 21 con Maven Wrapper. El POM ya incluye MVC, JPA, Validation, Security, Actuator, Flyway/PostgreSQL, springdoc y Testcontainers. La aplicacion aun solo contiene la clase de arranque, configuracion general y una prueba de carga de contexto; faltan migraciones, entidades, autenticacion por instalacion y endpoints de producto.
-
 
 ## Stack y build
 
 - Kotlin 2.2.21 sobre Java 21.
-
 - Spring Boot 4.0.8: MVC, Data JPA, Validation, Security, Actuator y Flyway (`spring-boot-starter-flyway`, obligatorio en Boot 4 para que las migraciones corran).
 - PostgreSQL 17 + Flyway; Testcontainers 2.x (version del BOM de Boot) para pruebas de integracion.
 - **Maven** es el build oficial: ver [`docs/ADR-005a-build-maven.md`](docs/ADR-005a-build-maven.md). Las versiones salen del BOM de Spring Boot; solo springdoc se fija en el POM.
@@ -34,16 +29,10 @@ Base Spring Boot 4.0.8 + Kotlin 2.2.21 + Java 21 con Maven Wrapper. El POM ya in
 | pruebas | `TestcontainersConfiguration` | `mvnw test/verify` | Contenedor `postgres:17-alpine` |
 
 Las credenciales de `local` son solo de desarrollo; el jar y la imagen Docker no activan `local` nunca.
-=======
-- Spring Boot 4.0.8: MVC, Data JPA, Validation, Security y Actuator.
-- PostgreSQL + Flyway; Testcontainers para pruebas de integracion.
-- Maven es el build configurado actualmente (`pom.xml`, `mvnw.cmd`); ADR-005 prescribe Gradle Kotlin DSL. Resolver esa discrepancia en la Fase 0 del roadmap antes de ampliar el servicio.
-- Docker/Render como destino previsto; no hay despliegue configurado aun.
 
 ## Requisitos locales
 
 - JDK 21.
-
 - **Docker Desktop** en ejecucion para `mvnw.cmd test` / `verify` (Testcontainers).
 - PostgreSQL local para `spring-boot:run` con el perfil `local`. Crear el rol y la base una vez (como superusuario `postgres`):
 
@@ -63,15 +52,10 @@ $env:MCG_TEST_EXTERNAL_DB="true"; $env:SPRING_DATASOURCE_URL="jdbc:postgresql://
 ```
 
 CI siempre usa Testcontainers.
-=======
-- PostgreSQL local para la prueba `contextLoads` actual. Docker Desktop sera necesario cuando las pruebas de integracion migren a Testcontainers (tarea pendiente del roadmap).
-- Para ejecucion local, PostgreSQL disponible y variables `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME` y `SPRING_DATASOURCE_PASSWORD`. Los valores de fallback actuales de `application.yaml` son solo para desarrollo local, nunca para despliegue.
-
 
 ## Comandos (PowerShell)
 
 ```powershell
-
 .\mvnw.cmd test              # requiere Docker
 .\mvnw.cmd package           # incluye pruebas; -DskipTests para solo empaquetar
 .\mvnw.cmd spring-boot:run   # perfil local
@@ -84,49 +68,30 @@ $env:SPRING_PROFILES_ACTIVE="prod"; $env:DB_HOST="localhost"; $env:DB_NAME="mcg"
 java -jar target\backend-0.0.1-SNAPSHOT.jar
 ```
 
-El servidor usa `PORT` o 8080. `/actuator/health`, `/actuator/health/liveness` y `/actuator/health/readiness` son publicos; cualquier otra ruta responde 403 hasta la Fase 2 (cubierto por `BackendApplicationTests`).
-=======
-.\mvnw.cmd test
-.\mvnw.cmd package
-.\mvnw.cmd spring-boot:run
-```
-
-El servidor usa `PORT` o 8080. La prueba de contexto actual necesita que PostgreSQL este disponible en la URL configurada. Actuator tiene configurado `/actuator/health`; hasta implementar la cadena de seguridad, confirmar que el endpoint quede publico y que no se expongan otros endpoints.
-
+El servidor usa `PORT` o 8080. `/actuator/health` y sus probes son publicos; el registro de instalacion es publico y `/api/v1/me/**` requiere token. Las demas rutas se deniegan. OpenAPI esta disponible en `/v3/api-docs` y Swagger UI en `/swagger-ui/index.html`; sus rutas son publicas y la API describe los errores RFC 9457.
 
 ## Estructura actual
 
 ```text
-
-src/main/kotlin/com/mtg/backend/          # Aplicacion Spring Boot
-src/main/kotlin/com/mtg/backend/config/   # SecurityConfig
+src/main/kotlin/com/mtg/backend/          # Features: config, contacts, incidents, installation
 src/main/resources/application*.yaml      # Configuracion base, local y prod
-src/main/resources/db/migration/          # Migraciones Flyway (V1 en Fase 1)
-src/test/kotlin/com/mtg/backend/          # Pruebas + TestcontainersConfiguration
+src/main/resources/db/migration/          # Migraciones Flyway
+src/test/kotlin/com/mtg/backend/          # Pruebas MVC/servicio + TestcontainersConfiguration
 Dockerfile, .dockerignore, render.yaml    # Despliegue
 .github/workflows/backend-ci.yml          # CI: pruebas + imagen Docker
 docs/DEPLOY_RENDER.md                     # Guia de despliegue
 docs/ADR-005a-build-maven.md              # Decision de build
-=======
-src/main/kotlin/com/mtg/backend/       # Aplicacion Spring Boot
-src/main/resources/application.yaml    # Configuracion
-src/test/kotlin/com/mtg/backend/       # Prueba de contexto inicial
-
 ```
 
 La arquitectura objetivo por feature, recursos y contrato API estan en [`../docs/10-backend-architecture.md`](../docs/10-backend-architecture.md). El modelo PostgreSQL esta en [`../docs/04-data-model.md`](../docs/04-data-model.md).
 
 ## Roadmap
 
-
 Ver [`ROADMAP.md`](ROADMAP.md) para fases, tareas y criterios verificables.
-=======
-Ver [`ROADMAP.md`](ROADMAP.md) para fases, tareas y criterios verificables. El build operativo es Maven, mientras que la decision arquitectonica vigente indica Gradle; el equipo debe ratificar uno y alinear el proyecto antes de implementar las features.
 
+## API implementada
 
-## API prevista
-
-Base `/api/v1`; registro publico de instalacion y rutas `/me/**` protegidas con token Bearer opaco. Incluye configuracion, contactos, incidentes idempotentes, trazas, borrado de datos y OpenAPI. El contrato completo esta en [`../docs/10-backend-architecture.md`](../docs/10-backend-architecture.md).
+Base `/api/v1`: registro de instalacion, config/contactos, sincronizacion idempotente y listado paginado de incidentes, trazas y borrado de datos. Los errores siguen RFC 9457 (`application/problem+json`) y el contrato OpenAPI se publica en `/v3/api-docs` (Swagger UI: `/swagger-ui/index.html`). El contrato funcional esta en [`../docs/10-backend-architecture.md`](../docs/10-backend-architecture.md).
 
 ## Seguridad
 
