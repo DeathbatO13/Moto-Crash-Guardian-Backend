@@ -1,0 +1,317 @@
+18:00:57.714 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.mtg.backend.config.UserConfigControllerTest]: UserConfigControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:00:58.115 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.mtg.backend.BackendApplication for test class com.mtg.backend.config.UserConfigControllerTest
+18:00:58.124 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.mtg.backend.config.UserConfigControllerTest]: UserConfigControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:00:58.164 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.mtg.backend.BackendApplication for test class com.mtg.backend.config.UserConfigControllerTest
+18:00:58.315 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.8)
+
+2026-10-04T18:00:58.918-05:00  INFO 20108 --- [mcg-backend] [           main] c.m.b.config.UserConfigControllerTest    : Starting UserConfigControllerTest using Java 26 with PID 20108 (started by Daniel in E:\User\Daniel Torres\Proyectos\Moto Crash Guardian\Backend)
+2026-10-04T18:00:58.921-05:00  INFO 20108 --- [mcg-backend] [           main] c.m.b.config.UserConfigControllerTest    : No active profile set, falling back to 1 default profile: "default"
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\danie\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-10-04T18:01:02.886-05:00  WARN 20108 --- [mcg-backend] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: eba006b4-ec8a-4a18-a368-1bcc0894abd8
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-10-04T18:01:02.899-05:00  INFO 20108 --- [mcg-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-10-04T18:01:03.786-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-04T18:01:03.786-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-04T18:01:03.791-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 5 ms
+2026-10-04T18:01:03.905-05:00  INFO 20108 --- [mcg-backend] [           main] c.m.b.config.UserConfigControllerTest    : Started UserConfigControllerTest in 5.607 seconds (process running for 7.979)
+2026-10-04T18:01:05.144-05:00  INFO 20108 --- [mcg-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.mtg.backend.contacts.EmergencyContactControllerTest]: EmergencyContactControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-04T18:01:05.225-05:00  INFO 20108 --- [mcg-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.mtg.backend.BackendApplication for test class com.mtg.backend.contacts.EmergencyContactControllerTest
+2026-10-04T18:01:05.228-05:00  INFO 20108 --- [mcg-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.mtg.backend.contacts.EmergencyContactControllerTest]: EmergencyContactControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-04T18:01:05.245-05:00  INFO 20108 --- [mcg-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.mtg.backend.BackendApplication for test class com.mtg.backend.contacts.EmergencyContactControllerTest
+2026-10-04T18:01:05.259-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.8)
+
+2026-10-04T18:01:05.306-05:00  INFO 20108 --- [mcg-backend] [           main] c.m.b.c.EmergencyContactControllerTest   : Starting EmergencyContactControllerTest using Java 26 with PID 20108 (started by Daniel in E:\User\Daniel Torres\Proyectos\Moto Crash Guardian\Backend)
+2026-10-04T18:01:05.306-05:00  INFO 20108 --- [mcg-backend] [           main] c.m.b.c.EmergencyContactControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2026-10-04T18:01:05.774-05:00  WARN 20108 --- [mcg-backend] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: f3f080f6-e848-4c6c-bccb-24855dc41b71
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-10-04T18:01:05.774-05:00  INFO 20108 --- [mcg-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-10-04T18:01:05.875-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-04T18:01:05.875-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-04T18:01:05.876-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-04T18:01:05.896-05:00  INFO 20108 --- [mcg-backend] [           main] c.m.b.c.EmergencyContactControllerTest   : Started EmergencyContactControllerTest in 0.638 seconds (process running for 9.971)
+2026-10-04T18:01:06.239-05:00  INFO 20108 --- [mcg-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.mtg.backend.incidents.IncidentControllerTest]: IncidentControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-04T18:01:06.295-05:00  INFO 20108 --- [mcg-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.mtg.backend.BackendApplication for test class com.mtg.backend.incidents.IncidentControllerTest
+2026-10-04T18:01:06.299-05:00  INFO 20108 --- [mcg-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.mtg.backend.incidents.IncidentControllerTest]: IncidentControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-04T18:01:06.315-05:00  INFO 20108 --- [mcg-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.mtg.backend.BackendApplication for test class com.mtg.backend.incidents.IncidentControllerTest
+2026-10-04T18:01:06.323-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.8)
+
+2026-10-04T18:01:06.367-05:00  INFO 20108 --- [mcg-backend] [           main] c.m.b.incidents.IncidentControllerTest   : Starting IncidentControllerTest using Java 26 with PID 20108 (started by Daniel in E:\User\Daniel Torres\Proyectos\Moto Crash Guardian\Backend)
+2026-10-04T18:01:06.367-05:00  INFO 20108 --- [mcg-backend] [           main] c.m.b.incidents.IncidentControllerTest   : No active profile set, falling back to 1 default profile: "default"
+2026-10-04T18:01:06.768-05:00  WARN 20108 --- [mcg-backend] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 7074d87c-c323-49b5-9de4-fbf980782c60
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-10-04T18:01:06.769-05:00  INFO 20108 --- [mcg-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-10-04T18:01:06.865-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-04T18:01:06.865-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-04T18:01:06.866-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-04T18:01:06.891-05:00  INFO 20108 --- [mcg-backend] [           main] c.m.b.incidents.IncidentControllerTest   : Started IncidentControllerTest in 0.568 seconds (process running for 10.965)
+2026-10-04T18:01:06.937-05:00  WARN 20108 --- [mcg-backend] [           main] o.s.test.context.TestContextManager      : Caught exception while invoking 'afterTestMethod' callback on TestExecutionListener [org.springframework.test.context.bean.override.mockito.MockitoResetTestExecutionListener] for test method [public final void com.mtg.backend.incidents.IncidentControllerTest.PUT incident crea un incidente nuevo()] and test instance [com.mtg.backend.incidents.IncidentControllerTest@6eec092]
+
+org.mockito.exceptions.misusing.InvalidUseOfMatchersException: 
+Misplaced or misused argument matcher detected here:
+
+-> at com.mtg.backend.incidents.IncidentControllerTest.PUT incident crea un incidente nuevo(IncidentControllerTest.kt:126)
+
+You cannot use argument matchers outside of verification or stubbing.
+Examples of correct usage of argument matchers:
+    when(mock.get(anyInt())).thenReturn(null);
+    doThrow(new RuntimeException()).when(mock).someVoidMethod(any());
+    verify(mock).someMethod(contains("foo"))
+
+This message may appear after an NullPointerException if the last matcher is returning an object 
+like any() but the stubbed method signature expect a primitive argument, in this case,
+use primitive alternatives.
+    when(mock.get(any())); // bad use, will raise NPE
+    when(mock.get(anyInt())); // correct usage use
+
+Also, this error might show up because you use argument matchers with methods that cannot be mocked.
+Following methods *cannot* be stubbed/verified: final/private/equals()/hashCode().
+Mocking methods declared on non-public parent classes is not supported.
+
+	at org.springframework.test.context.bean.override.mockito.MockitoResetTestExecutionListener.resetMocks(MockitoResetTestExecutionListener.java:123) ~[spring-test-7.0.9.jar:7.0.9]
+	at org.springframework.test.context.bean.override.mockito.MockitoResetTestExecutionListener.resetMocks(MockitoResetTestExecutionListener.java:110) ~[spring-test-7.0.9.jar:7.0.9]
+	at org.springframework.test.context.bean.override.mockito.MockitoResetTestExecutionListener.afterTestMethod(MockitoResetTestExecutionListener.java:103) ~[spring-test-7.0.9.jar:7.0.9]
+	at org.springframework.test.context.TestContextManager.afterTestMethod(TestContextManager.java:488) ~[spring-test-7.0.9.jar:7.0.9]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.afterEach(SpringExtension.java:357) ~[spring-test-7.0.9.jar:7.0.9]
+	at org.junit.jupiter.engine.descriptor.CallbackSupport.lambda$invokeAfterCallbacks$1(CallbackSupport.java:49) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.CallbackSupport.lambda$invokeAfterCallbacks$0(CallbackSupport.java:49) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.commons.util.CollectionUtils.forEachInReverseOrder(CollectionUtils.java:209) ~[junit-platform-commons-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.CallbackSupport.invokeAfterCallbacks(CallbackSupport.java:48) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAfterEachCallbacks(TestMethodTestDescriptor.java:260) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:163) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:70) ~[junit-jupiter-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:176) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1612) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:42) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$2(NodeTestTask.java:180) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$1(NodeTestTask.java:166) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:138) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$0(NodeTestTask.java:164) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:74) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:163) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:116) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:36) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:52) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:58) ~[junit-platform-engine-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.executeEngine(EngineExecutionOrchestrator.java:246) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.failOrExecuteEngine(EngineExecutionOrchestrator.java:218) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:179) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:66) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:157) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:65) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:125) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:58) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$2(InterceptingLauncher.java:57) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:56) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:58) ~[junit-platform-launcher-6.0.3.jar:6.0.3]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.apache.maven.surefire.api.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:125) ~[surefire-api-3.5.6.jar:3.5.6]
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.executeWithCancellationToken(LauncherAdapter.java:68) ~[surefire-junit-platform-3.5.6.jar:3.5.6]
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.execute(LauncherAdapter.java:54) ~[surefire-junit-platform-3.5.6.jar:3.5.6]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:203) ~[surefire-junit-platform-3.5.6.jar:3.5.6]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:168) ~[surefire-junit-platform-3.5.6.jar:3.5.6]
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:136) ~[surefire-junit-platform-3.5.6.jar:3.5.6]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385) ~[surefire-booter-3.5.6.jar:3.5.6]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.6.jar:3.5.6]
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.6.jar:3.5.6]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.6.jar:3.5.6]
+
+
+MockHttpServletRequest:
+      HTTP Method = PUT
+      Request URI = /api/v1/me/incidents/65ea00ed-9411-43cd-b45c-d3a3d49b5b9b/trace
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Authorization:"Bearer `mcg-incident-token", Content-Length:"158"]
+             Body = {
+  "sampleRateHz": 200,
+  "preTriggerSamples": 100,
+  "totalSamples": 200,
+  "accelLsbPerG": 2048,
+  "gyroLsbPerDpsX10": 164,
+  "samplesBase64": "invalid!"
+}
+    Session Attrs = {}
+
+Handler:
+             Type = null
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 401
+    Error message = null
+          Headers = [Content-Type:"application/problem+json", X-Content-Type-Options:"nosniff", X-XSS-Protection:"0", Cache-Control:"no-cache, no-store, max-age=0, must-revalidate", Pragma:"no-cache", Expires:"0", X-Frame-Options:"DENY"]
+     Content type = application/problem+json
+             Body = {"type":"https://motocrashguardian.com/errors/unauthorized","title":"Unauthorized","status":401,"detail":"Full authentication is required to access this resource"}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+[ERROR] Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.811 s <<< FAILURE! -- in com.mtg.backend.incidents.IncidentControllerTest
+[ERROR] com.mtg.backend.incidents.IncidentControllerTest.PUT incident crea un incidente nuevo -- Time elapsed: 0.057 s <<< ERROR!
+java.lang.NullPointerException: any(...) must not be null
+	at com.mtg.backend.incidents.IncidentControllerTest.PUT incident crea un incidente nuevo(IncidentControllerTest.kt:126)
+	Suppressed: org.mockito.exceptions.misusing.InvalidUseOfMatchersException: 
+Misplaced or misused argument matcher detected here:
+
+-> at com.mtg.backend.incidents.IncidentControllerTest.PUT incident crea un incidente nuevo(IncidentControllerTest.kt:126)
+
+You cannot use argument matchers outside of verification or stubbing.
+Examples of correct usage of argument matchers:
+    when(mock.get(anyInt())).thenReturn(null);
+    doThrow(new RuntimeException()).when(mock).someVoidMethod(any());
+    verify(mock).someMethod(contains("foo"))
+
+This message may appear after an NullPointerException if the last matcher is returning an object 
+like any() but the stubbed method signature expect a primitive argument, in this case,
+use primitive alternatives.
+    when(mock.get(any())); // bad use, will raise NPE
+    when(mock.get(anyInt())); // correct usage use
+
+Also, this error might show up because you use argument matchers with methods that cannot be mocked.
+Following methods *cannot* be stubbed/verified: final/private/equals()/hashCode().
+Mocking methods declared on non-public parent classes is not supported.
+
+		at org.springframework.test.context.bean.override.mockito.MockitoResetTestExecutionListener.resetMocks(MockitoResetTestExecutionListener.java:123)
+		at org.springframework.test.context.bean.override.mockito.MockitoResetTestExecutionListener.resetMocks(MockitoResetTestExecutionListener.java:110)
+		at org.springframework.test.context.bean.override.mockito.MockitoResetTestExecutionListener.afterTestMethod(MockitoResetTestExecutionListener.java:103)
+		at org.springframework.test.context.TestContextManager.afterTestMethod(TestContextManager.java:488)
+		at org.springframework.test.context.junit.jupiter.SpringExtension.afterEach(SpringExtension.java:357)
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1612)
+
+[ERROR] com.mtg.backend.incidents.IncidentControllerTest.PUT trace con payload invalido responde 400 -- Time elapsed: 0.043 s <<< FAILURE!
+java.lang.AssertionError: Status expected:<400> but was:<401>
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:62)
+	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:129)
+	at org.springframework.test.web.servlet.result.StatusResultMatchers.lambda$matcher$0(StatusResultMatchers.java:600)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:212)
+	at org.springframework.test.web.servlet.result.StatusResultMatchersDsl.isBadRequest(StatusResultMatchersDsl.kt:243)
+	at com.mtg.backend.incidents.IncidentControllerTest.PUT_trace_con_payload_invalido_responde_400$lambda$1$0(IncidentControllerTest.kt:158)
+	at org.springframework.test.web.servlet.MockMvcResultMatchersDsl.status(MockMvcResultMatchersDsl.kt:97)
+	at com.mtg.backend.incidents.IncidentControllerTest.PUT_trace_con_payload_invalido_responde_400$lambda$1(IncidentControllerTest.kt:158)
+	at org.springframework.test.web.servlet.ResultActionsDsl.andExpect(ResultActionsDsl.kt:18)
+	at com.mtg.backend.incidents.IncidentControllerTest.PUT trace con payload invalido responde 400(IncidentControllerTest.kt:157)
+
+2026-10-04T18:01:07.063-05:00  INFO 20108 --- [mcg-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.mtg.backend.installation.InstallationControllerTest]: InstallationControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-04T18:01:07.149-05:00  INFO 20108 --- [mcg-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.mtg.backend.BackendApplication for test class com.mtg.backend.installation.InstallationControllerTest
+2026-10-04T18:01:07.167-05:00  INFO 20108 --- [mcg-backend] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.mtg.backend.installation.InstallationControllerTest]: InstallationControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-04T18:01:07.189-05:00  INFO 20108 --- [mcg-backend] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.mtg.backend.BackendApplication for test class com.mtg.backend.installation.InstallationControllerTest
+2026-10-04T18:01:07.213-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.8)
+
+2026-10-04T18:01:07.262-05:00  INFO 20108 --- [mcg-backend] [           main] c.m.b.i.InstallationControllerTest       : Starting InstallationControllerTest using Java 26 with PID 20108 (started by Daniel in E:\User\Daniel Torres\Proyectos\Moto Crash Guardian\Backend)
+2026-10-04T18:01:07.263-05:00  INFO 20108 --- [mcg-backend] [           main] c.m.b.i.InstallationControllerTest       : No active profile set, falling back to 1 default profile: "default"
+2026-10-04T18:01:07.620-05:00  WARN 20108 --- [mcg-backend] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 8dcdfd68-8d60-4a89-8564-a642e3b6c854
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-10-04T18:01:07.621-05:00  INFO 20108 --- [mcg-backend] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-10-04T18:01:07.690-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-04T18:01:07.690-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-04T18:01:07.691-05:00  INFO 20108 --- [mcg-backend] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-04T18:01:07.706-05:00  INFO 20108 --- [mcg-backend] [           main] c.m.b.i.InstallationControllerTest       : Started InstallationControllerTest in 0.494 seconds (process running for 11.78)
+[ERROR] Failures: 
+[ERROR]   IncidentControllerTest.PUT trace con payload invalido responde 400:157->PUT_trace_con_payload_invalido_responde_400$lambda$1:158->PUT_trace_con_payload_invalido_responde_400$lambda$1$0:158 Status expected:<400> but was:<401>
+[ERROR] Errors: 
+[ERROR]   IncidentControllerTest.PUT incident crea un incidente nuevo:126 NullPointer any(...) must not be null
+[ERROR] Tests run: 11, Failures: 1, Errors: 1, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project backend: There are test failures.
+[ERROR] 
+[ERROR] See E:\User\Daniel Torres\Proyectos\Moto Crash Guardian\Backend\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
