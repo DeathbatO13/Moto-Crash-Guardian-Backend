@@ -45,8 +45,9 @@ class UserConfigService(
                 updatedAt = Instant.now()
             }
         } else {
+            // Con @MapsId el id se deriva de `installation`; asignarlo a mano hace que Spring Data
+            // trate la entidad como existente (revision es primitivo) y use merge, que falla.
             UserConfig(
-                installationId = installationId,
                 installation = installation,
                 riderName = request.riderName,
                 impactThresholdMg = request.impactThresholdMg,
@@ -64,7 +65,8 @@ class UserConfigService(
             )
         }
 
-        val saved = userConfigRepository.save(configToSave)
+        // saveAndFlush: @Version se incrementa al hacer flush; sin esto la respuesta trae la revision anterior.
+        val saved = userConfigRepository.saveAndFlush(configToSave)
         return saved.toDto()
     }
 }

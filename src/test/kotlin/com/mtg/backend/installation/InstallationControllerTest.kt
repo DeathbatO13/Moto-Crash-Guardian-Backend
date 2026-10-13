@@ -2,6 +2,7 @@ package com.mtg.backend.installation
 
 import com.mtg.backend.common.error.GlobalExceptionHandler
 import com.mtg.backend.common.security.InstallationTokenFilter
+import com.mtg.backend.common.security.ClientIpResolver
 import com.mtg.backend.common.security.TokenGenerator
 import com.mtg.backend.config.SecurityConfig
 import com.mtg.backend.config.WebMvcConfig
@@ -27,7 +28,8 @@ import java.util.UUID
     WebMvcConfig::class,
     GlobalExceptionHandler::class,
     InstallationTokenFilter::class,
-    TokenGenerator::class
+    TokenGenerator::class,
+    ClientIpResolver::class
 )
 class InstallationControllerTest {
 

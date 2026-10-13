@@ -38,3 +38,7 @@ build/
 
 ### Cache local del Maven Wrapper ###
 .maven-cache/
+
+### Registros de pruebas locales ###
+test-output.txt
+testlog.txt
