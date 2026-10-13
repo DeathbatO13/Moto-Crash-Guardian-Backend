@@ -1,5 +1,6 @@
 package com.mtg.backend.installation
 
+import com.mtg.backend.common.security.ClientIpResolver
 import com.mtg.backend.common.security.CurrentInstallation
 import com.mtg.backend.config.OpenApiConfig.Companion.INSTALLATION_BEARER_SCHEME
 import io.swagger.v3.oas.annotations.security.SecurityRequirement
@@ -18,7 +19,8 @@ import java.util.UUID
 @RestController
 @RequestMapping("/api/v1")
 class InstallationController(
-    private val installationService: InstallationService
+    private val installationService: InstallationService,
+    private val clientIpResolver: ClientIpResolver
 ) {
 
     @PostMapping("/installations")
@@ -26,7 +28,7 @@ class InstallationController(
         @Valid @RequestBody request: RegisterInstallationRequest,
         servletRequest: HttpServletRequest
     ): ResponseEntity<RegisterInstallationResponse> {
-        val clientIp = extractClientIp(servletRequest)
+        val clientIp = clientIpResolver.resolve(servletRequest)
         val response = installationService.registerInstallation(request, clientIp)
         return ResponseEntity.status(HttpStatus.CREATED).body(response)
     }
@@ -40,12 +42,4 @@ class InstallationController(
         installationService.deleteInstallation(installationId)
     }
 
-    private fun extractClientIp(request: HttpServletRequest): String {
-        val forwardedFor = request.getHeader("X-Forwarded-For")
-        return if (!forwardedFor.isNullOrBlank()) {
-            forwardedFor.split(",").first().trim()
-        } else {
-            request.remoteAddr ?: "unknown"
-        }
-    }
 }

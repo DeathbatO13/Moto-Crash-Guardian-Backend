@@ -53,6 +53,9 @@ class EmergencyContactService(
 
         // Reemplazo atómico
         emergencyContactRepository.deleteByInstallationId(installationId)
+        // Hibernate ejecuta los INSERT antes que los DELETE al hacer flush; sin esto, reemplazar un
+        // contacto por otro del mismo rol viola UNIQUE (installation_id, role).
+        emergencyContactRepository.flush()
 
         val entitiesToSave = contacts.map { dto ->
             EmergencyContact(

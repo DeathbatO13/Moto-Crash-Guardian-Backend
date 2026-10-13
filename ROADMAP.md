@@ -69,7 +69,7 @@ La suite completa del backend paso: 50 pruebas, incluyendo `/v3/api-docs`, Swagg
 
 ## Fase 6 — Operacion y despliegue
 
-- [ ] Confirmar que `/actuator/health` y probes funcionen sin exponer otros endpoints Actuator (health 200, resto 403). Prueba automatizada escrita en `BackendApplicationTests` (MockMvc + Spring Security).
+- [x] Confirmar que `/actuator/health` y probes funcionen sin exponer otros endpoints Actuator (health 200, resto 403). Verificado en `BackendApplicationTests` y en el despliegue de Render (13-oct-2026).
 - [x] Crear Dockerfile multi-stage no-root con JVM ajustada al plan de Render; health check via `healthCheckPath` de Render.
 - [x] Crear `render.yaml` y `docs/DEPLOY_RENDER.md`; la URL JDBC se arma en `application-prod.yaml` con `DB_*` de `fromDatabase`.
 - [ ] Ejecutar el primer deploy real en Render y registrar la URL publica; cronograma en `docs/DEPLOY_RENDER.md` §9.

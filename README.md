@@ -6,7 +6,7 @@ API REST para replicar configuracion y contactos y conservar historial/trazas de
 
 ## Estado actual
 
-Base Spring Boot 4.0.8 + Kotlin 2.2.21 + Java 21 con Maven Wrapper. Las fases 0 a 5 del roadmap estan implementadas; las pruebas con PostgreSQL 17/Testcontainers validan la migracion Flyway, Hibernate `ddl-auto: validate`, el round-trip de trazas, borrado en cascada y upserts concurrentes. La suite completa paso con 50 pruebas. Persisten tareas operativas/de despliegue y sincronizacion Android.
+Base Spring Boot 4.0.8 + Kotlin 2.2.21 + Java 21 con Maven Wrapper. Las fases 0 a 5 del roadmap estan implementadas; las pruebas con PostgreSQL 17/Testcontainers validan la migracion Flyway, Hibernate `ddl-auto: validate`, el round-trip de trazas, borrado en cascada y upserts concurrentes. La suite completa paso con 67 pruebas. Persisten tareas operativas/de despliegue y sincronizacion Android.
 
 El despliegue en Render ya esta configurado (`Dockerfile`, `render.yaml`, CI). Guia completa: [`docs/DEPLOY_RENDER.md`](docs/DEPLOY_RENDER.md).
 
